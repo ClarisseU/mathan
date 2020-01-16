@@ -1,39 +1,68 @@
-{%extends 'all-photos/base.html'%} {% block content %} {{block.super}}
+{%extends 'all-photos/base.html'%}
+<!DOCTYPE html>
+<html lang="en">
 
-<h1>
-    Welcome To The Mathan Baby Solution
-</h1>
-<div class="row">
-    {% for im in image %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        /* got this style from:https://stackoverflow.com/questions/39198975/how-can-i-make-image-fit-in-div-django */
+        
+        #img-post {
+            padding: 0;
+            /* display: block; */
+            /* margin: 0 auto auto 0; */
+            height: 200px;
+            width: 200px;
+            max-height: 200px;
+            max-width: 200px;
+        }
+    </style>
+</head>
 
-    <div class='col-xs-6 col-sm-6 col-md-6 col-lg-6'>
-        <img src="{{im.image.url}}" class="img-thumbnail " alt="Image" data-toggle="modal" data-target="#{{im.id}}"><br>
+<body>{% block content %} {{block.super}}
+    <img width="100%" src="https://cdn.pixabay.com/photo/2017/08/18/12/01/crib-mobile-2654734_960_720.jpg">
 
-    </div>
+    <div class="container">
 
-    <!-- Modal -->
-    <div class="modal fade" id="{{im.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalCenterTitle"></h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <img src="{{im.image.url}}" class="img-thumbnail " alt="Image">
-                    <p>{{im.img_name}}</p>
-                    <p>{{im.img_description}}</p>
-                    <p>Category: {{im.category}}</p>
+        <h1>
+            Welcome To The Mathan Baby Solution
+        </h1>
+        <div class="row">
+            {% for im in image %}
 
-                </div>
+            <div class='col-xs-6 col-sm-6 col-md-6 col-lg-6'>
+                <img src="{{im.image.url}}" id="img-post" class="img-thumbnail " alt="Image" data-toggle="modal" data-target="#{{im.id}}"><br>
 
             </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="{{im.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalCenterTitle"></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="{{im.image.url}}" class="img-thumbnail " alt="Image">
+                            <p>{{im.img_name}}</p>
+                            <p>{{im.img_description}}</p>
+                            <p>Category: {{im.category}}</p>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            {%endfor %}
         </div>
+
     </div>
-    {%endfor %}
-</div>
+    {% endblock%}
+</body>
 
-
-{% endblock%}
+</html>
