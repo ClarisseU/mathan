@@ -1,0 +1,40 @@
+{%extends 'all-photos/base.html'%} {% block content %} {% include "navbar.html" %}
+
+<div class="container">
+    <div class="row">
+        {% for im in images %}
+        <div class='col-xs-4 col-sm-4 col-md-4 col-lg-4'><br>
+            <a href="{% url 'image' im.id %}">
+                <img src="{{im.image.url}}" id="img-post" class="img-thumbnail " alt="Image" data-toggle="modal" data-target="#{{im.id}}"><br>
+                <br>
+            </a>
+            <p>{{im.img_name}}</p>
+            <p>{{im.img_description}}</p>
+            <p>Category: {{im.category}}</p>
+            <p>Price: {{im.price}}</p>
+            <!-- Modal -->
+            <div class="modal fade" id="{{im.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+                            <h5 class="modal-title" id="exampleModalCenterTitle"></h5>
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="{{im.image.url}}" id="img-post" class="img-thumbnail" alt="Image">
+                            <p>{{im.img_name}}</p>
+                            <p>{{im.img_description}}</p>
+                            <p>Category: {{im.category}}</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        {%endfor %}
+
+    </div>
+</div>
+{% endblock%}

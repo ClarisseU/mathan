@@ -1,5 +1,4 @@
-{%extends 'all-photos/base.html'%} {% block content %}
-
+{%extends 'all-photos/base.html'%} {% block content %} {% include "navbar.html" %}
 <div class="container">
 
     <div class="row">
@@ -13,10 +12,15 @@
     <div class="row">
         <p>{{image.description}}</p>
     </div>
-
     <div class="row">
-        <p>Posted {{image.pub_date|timesince}} by {{image.image.img_name}}</p>
+        <p><strong>Category: </strong></p>
+        <p>{{image.category}}</p>
     </div>
+    <div class="row">
+        <p><strong>Price: </strong></p>
+        <p>{{image.price}}</p>
+    </div>
+
 
 </div>
 

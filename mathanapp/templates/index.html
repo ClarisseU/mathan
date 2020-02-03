@@ -33,7 +33,7 @@
         <div class="row">
             {% for im in image %}
             <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12'>
-                <a>
+                <a href="{% url 'image' im.id %}">
                     <img src="{{im.image.url}}" id="img-post" class="img-thumbnail " alt="Image" data-toggle="modal" data-target="#{{im.id}}"><br>
                     <br>
                 </a>

@@ -21,6 +21,7 @@ class Image(models.Model):
     img_name = models.CharField(max_length=60)
     img_description = models.CharField(max_length=60)
     category = models.ForeignKey(Category, null=True)
+    price = models.CharField(max_length=60, null=True)
     
     def __str__(self):
         return str(self.image)

@@ -31,6 +31,10 @@ def image(request,id):
         raise Http404()
     return render(request,'all-photos/image.html',{'image':images}) 
 
+def all_images(request):
+    images = Image.objects.all()
+    return render(request, 'all_images.html',{'images':images})
+
 def category(request,location):
     image = Image.filter_by_location(location)
     category = Category.objects.all()
