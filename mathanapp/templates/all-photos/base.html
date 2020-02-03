@@ -4,9 +4,9 @@
 
 <head>
     <meta charset="utf-8"> {% if title %}
-    <title> My Gallery- {{title}}</title>
+    <title> The Mathan- {{title}}</title>
     {% else %}
-    <title> My Gallery </title>
+    <title> The Mathan </title>
     {% endif %} {% block styles %} {% bootstrap_css %}
     <link rel="stylesheet" href="{% static 'css/base.css' %}"> {% endblock %}
 
@@ -57,7 +57,7 @@
 </head>
 
 <body>
-    {% include "navbar.html" %} {% block content %} {%endblock%} {% block scripts %}
+    {% block content %} {%endblock%} {% block scripts %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     {% bootstrap_javascript %} {% endblock %}
 

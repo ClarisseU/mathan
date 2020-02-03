@@ -11,56 +11,56 @@
         
         #img-post {
             padding: 0;
-            /* display: block; */
-            /* margin: 0 auto auto 0; */
-            height: 200px;
-            width: 200px;
-            max-height: 200px;
-            max-width: 200px;
+            height: 100px;
+            width: 100px;
+            /* max-height: 200px;
+            max-width: 200px; */
         }
     </style>
 </head>
 
 <body>{% block content %} {{block.super}}
-    <img width="100%" src="https://cdn.pixabay.com/photo/2017/08/18/12/01/crib-mobile-2654734_960_720.jpg">
-
     <div class="container">
 
-        <h1>
+        <h1 style="font-family: 'Zhi Mang Xing', cursive; color: blue; text-align:center">
             Welcome To The Mathan Baby Solution
         </h1>
+        <hr>
+        <img width="100%" src="https://cdn.pixabay.com/photo/2017/08/18/12/01/crib-mobile-2654734_960_720.jpg"><br>
+        <br>{% include "navbar.html" %}
+        <br>
+
         <div class="row">
             {% for im in image %}
+            <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12'>
+                <a>
+                    <img src="{{im.image.url}}" id="img-post" class="img-thumbnail " alt="Image" data-toggle="modal" data-target="#{{im.id}}"><br>
+                    <br>
+                </a>
+                <!-- Modal -->
+                <div class="modal fade" id="{{im.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+                                <h5 class="modal-title" id="exampleModalCenterTitle"></h5>
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <img src="{{im.image.url}}" id="img-post" class="img-thumbnail" alt="Image">
+                                <p>{{im.img_name}}</p>
+                                <p>{{im.img_description}}</p>
+                                <p>Category: {{im.category}}</p>
+                            </div>
 
-            <div class='col-xs-6 col-sm-6 col-md-6 col-lg-6'>
-                <img src="{{im.image.url}}" id="img-post" class="img-thumbnail " alt="Image" data-toggle="modal" data-target="#{{im.id}}"><br>
-
-            </div>
-
-            <!-- Modal -->
-            <div class="modal fade" id="{{im.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalCenterTitle"></h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
                         </div>
-                        <div class="modal-body">
-                            <img src="{{im.image.url}}" class="img-thumbnail " alt="Image">
-                            <p>{{im.img_name}}</p>
-                            <p>{{im.img_description}}</p>
-                            <p>Category: {{im.category}}</p>
-
-                        </div>
-
                     </div>
                 </div>
             </div>
             {%endfor %}
-        </div>
 
+        </div>
     </div>
     {% endblock%}
 </body>
