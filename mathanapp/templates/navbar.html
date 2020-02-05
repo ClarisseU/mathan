@@ -15,14 +15,23 @@
                 <a class="nav-link active" href="{%url 'welcome'%}">Home</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="#section-about">About Us</a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="{% url 'all_images' %}">Products</a>
             </li>
-            <form class="form-inline my-2 my-lg-0" role="search" action="{% url 'search_results' %}">
-
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" name="image" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-                    <i class="glyphicon glyphicon-search"></i>Search</button>
-            </form>
+            <li class="nav-item">
+                <div class="dropdown">
+                    <a class="navbar-brand">Category</a>
+                    <div class="dropdown-content">
+                        <a href="{% url 'category' category='under 13 years'%}">under 13 years</a>
+                        <a href="{% url 'category' category='under 10 years'%}">under 10 years</a>
+                        <a href="{% url 'category' category='under 5 years'%}">under 5 years</a>
+                        <a href="{% url 'category' category='under 3 years'%}">under 3 years</a>
+                        <a href="{% url 'category' category='under 1 year'%}">under 1 year</a>
+                    </div>
+                </div>
+            </li>
         </ul>
 
     </div>

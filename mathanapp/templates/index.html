@@ -13,8 +13,8 @@
             padding: 0;
             height: 100px;
             width: 100px;
-            /* max-height: 200px;
-            max-width: 200px; */
+            /* max-height: 100px;
+            max-width: 100px; */
         }
     </style>
 </head>
@@ -29,40 +29,37 @@
         <img width="100%" src="https://cdn.pixabay.com/photo/2017/08/18/12/01/crib-mobile-2654734_960_720.jpg"><br>
         <br>{% include "navbar.html" %}
         <br>
-
-        <div class="row">
-            {% for im in image %}
-            <div class='col-xs-12 col-sm-12 col-md-12 col-lg-12'>
-                <a href="{% url 'image' im.id %}">
-                    <img src="{{im.image.url}}" id="img-post" class="img-thumbnail " alt="Image" data-toggle="modal" data-target="#{{im.id}}"><br>
-                    <br>
-                </a>
-                <!-- Modal -->
-                <div class="modal fade" id="{{im.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
-                                <h5 class="modal-title" id="exampleModalCenterTitle"></h5>
-                                <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <img src="{{im.image.url}}" id="img-post" class="img-thumbnail" alt="Image">
-                                <p>{{im.img_name}}</p>
-                                <p>{{im.img_description}}</p>
-                                <p>Category: {{im.category}}</p>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
+        <section id="section-about">
+            <div style="font-family: 'Zhi Mang Xing', cursive; color: blue; text-align:center">
+                <h1>About Us</h1>
+                <h3>The Mathan Baby Solution</h3>
             </div>
-            {%endfor %}
+            <div style="font-family: 'Zhi Mang Xing', cursive; text-align:center">
+                <span>
+                    <p>We are happy when we see a child well dressed. That's our pride.<br>
+                        After observing and discovering that it is not easy for the parents to know where they can find clothes and accessories for their babies especially new parent<br> We decided to be your easy solution.<br>
+                        We bring you the best in town, product that you can't find in other places.<br> For more info please visit us or in case of inquiries or need some help please us, We'll be so glad to hear from you and help you!
+                    </p>
+                </span>
+            </div>
+        </section>
+        <br>
+        <section>
+            <div class="row">
+                {% for im in image %}
+                <div class='col-xs-6 col-sm-6 col-md-6 col-lg-6'>
+                    <a href="{% url 'image' im.id %}">
+                        <img src="{{im.image.url}}" id="img-post" class="img-thumbnail " alt="Image"><br>
+                        <br>
+                    </a>
 
-        </div>
-    </div>
-    {% endblock%}
+                </div>
+                {%endfor %}
+            </div>
+        </section>
+        <br>
+        <hr> {% include "footer.html" %} {% endblock%}
 </body>
+
 
 </html>

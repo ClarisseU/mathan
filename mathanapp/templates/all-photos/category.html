@@ -1,0 +1,32 @@
+{%extends 'all-photos/base.html'%} {% block content %} {{block.super}}{% include "navbar.html" %}
+<html>
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        #img-post {
+            padding: 0;
+            height: 200px;
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class='col-xs-6 col-sm-6 col-md-6 col-lg-6'>
+            {% for l in image %}
+            <h3>{{l.namecat.namecat}}</h3>
+            <a href="{% url 'image' l.id %}">
+                <img src='{{l.image.url}}' id="img-post" class="img-responsive">
+            </a> {%endfor %}
+        </div>
+    </div>
+</body><br>
+<hr>
+
+</html> {% include "footer.html" %}{% endblock%}

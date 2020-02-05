@@ -9,21 +9,6 @@ def welcome(request):
     
     return render(request, 'index.html',{'image':images})
 
-def search_results(request):
-    '''
-    a view to do the search the image by category
-    '''
-    if 'image' in request.GET and request.GET["image"]:
-        search = request.GET.get('image')
-        searched = Image.search_image(search)
-        message = f"{search}"
-        
-        return render(request,"all-photos/search.html", {"message":message, "images":searched})
-
-    else:
-        message = 'You have not searched for any image'
-        return render(request, 'all-photos/search.html',{"message":message})    
-
 def image(request,id):
     try:
         images= Image.objects.get(id = id)
@@ -35,7 +20,7 @@ def all_images(request):
     images = Image.objects.all()
     return render(request, 'all_images.html',{'images':images})
 
-def category(request,location):
-    image = Image.filter_by_location(location)
+def category(request, category):
+    image = Image.filter_by_category(category)
     category = Category.objects.all()
-    return render(request,'all-photos/location.html',{'category':category, 'image':image})
+    return render(request,'all-photos/category.html',{'category':category, 'image':image})

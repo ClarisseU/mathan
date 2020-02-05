@@ -20,7 +20,7 @@ class Image(models.Model):
     image = models.ImageField(upload_to='image/', null=True)
     img_name = models.CharField(max_length=60)
     img_description = models.CharField(max_length=60)
-    category = models.ForeignKey(Category, null=True)
+    namecat = models.ForeignKey(Category, null=True)
     price = models.CharField(max_length=60, null=True)
     
     def __str__(self):
@@ -39,8 +39,8 @@ class Image(models.Model):
     def get_image_by_id(cls,id):
         image = cls.objects.filter(id = id)
         return image
-        
+    
     @classmethod
-    def search_image(cls,search_category):
-        photos = cls.objects.filter( category__namecat = search_category)
-        return photos
+    def filter_by_category(cls,category):
+        image = cls.objects.filter(namecat__namecat__icontains = category) 
+        return image 
