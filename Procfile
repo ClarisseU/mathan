@@ -1,1 +1,1 @@
-web: gunicorn mathanpro.wsgi
+web:gunicorn mathanpro.wsgi
