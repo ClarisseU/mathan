@@ -76,7 +76,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mathanpro.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 MODE=config("MODE", default="dev")

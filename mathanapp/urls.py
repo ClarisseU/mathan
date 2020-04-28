@@ -9,6 +9,8 @@ urlpatterns=[
     url(r'^image/(?P<id>[\w-]+)$', views.image, name='image'),
     url(r'^allImages$',views.all_images,name='all_images'),
     url(r'^category/(?P<category>.+?)/$', views.category, name='category'),
+  
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+    urlpatterns= urlpatterns + static(settings.STATIC_URL, document_root= settings.STATIC_ROOT)

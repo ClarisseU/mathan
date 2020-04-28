@@ -5,23 +5,20 @@
         <img src="{{image.image.url}}" class="img-thumbnail" alt="">
     </div>
 
-    <div class="row">
+    <div class="row" style="font-family: 'Zhi Mang Xing', cursive; text-align:center">
         <h1 class="text-center">{{image.img_name}}</h1>
     </div>
 
-    <div class="row">
+    <div class="row" style="font-family: 'Zhi Mang Xing', cursive; text-align:center">
         <p>{{image.description}}</p>
     </div>
-    <div class="row">
+    <div class="row" style="font-family: 'Zhi Mang Xing', cursive; text-align:center">
 
         <p><strong>Category: </strong> {{image.namecat}}</p>
 
     </div>
-    <div class="row">
+    <div class="row" style="font-family: 'Zhi Mang Xing', cursive; text-align:center">
         <p><strong>Price: </strong> {{image.price}}</p>
 
     </div>
-
-
-</div>
-{% endblock %}
+</div>{% include "footer.html" %} {% endblock %}
